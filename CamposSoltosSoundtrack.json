@@ -1,0 +1,962 @@
+{
+    "name": "Campos Soltos Soundtrack",
+    "description": "An unofficial soundtrack befitting of the game. Music made by https://www.youtube.com/@ProjetosCamposSoltos",
+    "version": "1.0.6",
+    "icon": "./breeze/packs/soundtrack/Soundtrack.png",
+    "shorthand": {
+        "CombatMusicGeneric": "./breeze/packs/soundtrack/music/Combat.mp4",
+        "CombatVoreDeep": "./breeze/packs/soundtrack/music/HumanTrafficking.mp4",
+        "schismExemptions": "passage = 'Schism Awake' or passage = 'Schism Drown'",
+        "SchoolHall": "./breeze/packs/soundtrack/music/School.mp4",
+        "Classroom": "./breeze/packs/soundtrack/music/Classroom.mp4",
+        "Library": "./breeze/packs/soundtrack/music/Library.mp4",
+        "SydneyTheme": "./breeze/packs/soundtrack/music/SydneyPure.mp4",
+        "SydneyCorrupt": "./breeze/packs/soundtrack/music/SydneyCorrupt.mp4",
+        "SydneyWedding": "./breeze/packs/soundtrack/music/SydneyPromise.mp4",
+        "SydneyDefilement": "./breeze/packs/soundtrack/music/SydneyDefilement.mp4",
+        "WhitneyTheme": "./breeze/packs/soundtrack/music/Whitney.mp4",
+        "WhitneyThemeSoft": "./breeze/packs/soundtrack/music/WhitneySoft.mp4",
+        "BaileyPayUp": "./breeze/packs/soundtrack/music/BaileyPayUp.mp4",
+        "BeastRape": "./breeze/packs/soundtrack/music/BaileyPayUp.mp4",
+        "IsEventBaileyPayUp": "text has 'Time to pay up' or (passage has 'Rent' and passage neq 'Rent Pay')",
+        "MorganTheme": "./breeze/packs/soundtrack/music/MorganTheme.mp4",
+        "QuinnTheme": "./breeze/packs/soundtrack/music/QuinnTheme.mp4",
+        "NikiTheme": "./breeze/packs/soundtrack/music/NikiTheme.mp4",
+        "KylarTheme": "./breeze/packs/soundtrack/music/Kylar.mp4",
+        "Stockholm": "passage has 'Stockholm' or (passage has $syndromekylar or passage has $syndromeeden or passage has $syndromewolves or passage has $syndromebird)",
+        "RobinTheme": "./breeze/packs/soundtrack/music/Robin.mp4",
+        "RobinThemeLove": "./breeze/packs/soundtrack/music/RobinLove.mp4",
+        "RobinThemeTrauma": "./breeze/packs/soundtrack/music/Dissapearance.mp4",
+        "AlexTheme": "./breeze/packs/soundtrack/music/AlexTheme.mp4",
+        "Farmland": "./breeze/packs/soundtrack/music/Farmland.mp4",
+        "EdenTheme": "./breeze/packs/soundtrack/music/Eden.mp4",
+        "AveryFancy": "./breeze/packs/soundtrack/music/AveryRestaurant.mp4",
+        "AveryTheme": "./breeze/packs/soundtrack/music/AveryTheme.mp4",
+        "GwylanTheme": "./breeze/packs/soundtrack/music/Gwylan.mp4",
+        "HawkTheme": "./breeze/packs/soundtrack/music/GreatHawk.mp4",
+        "AlphaTheme": "./breeze/packs/soundtrack/music/BlackWolf.mp4",
+        "Tranquil": "./breeze/packs/soundtrack/music/Tranquil.mp4",
+        "BloodMoon": "./breeze/packs/soundtrack/music/BloodMoon.mp4",
+        "WraithFight": "./breeze/packs/soundtrack/music/IvoryWraith.mp4",
+        "Temple": "./breeze/packs/soundtrack/music/Temple.mp4",
+        "TempleNight": "./breeze/packs/soundtrack/music/Confession.mp4",
+        "Flats": "./breeze/packs/soundtrack/music/Flats.mp4",
+        "Club": "./breeze/packs/soundtrack/music/Club.mp4",
+        "Brothel": "./breeze/packs/soundtrack/music/BrothelDance.mp4",
+        "BlackJack": "./breeze/packs/soundtrack/music/Blackjack.mp4",
+        "PotionShopMusic": "./breeze/packs/soundtrack/music/HookahParlour.mp4",
+        "TentacleWorld": "./breeze/packs/soundtrack/music/TentacleForest.mp4",
+        "Pub": "./breeze/packs/soundtrack/music/Pub.mp4",
+        "Forest": "./breeze/packs/soundtrack/music/Forest.mp4",
+        "LakeRuins": "./breeze/packs/soundtrack/music/ForestLakeRuins.mp4",
+        "Cafe": "./breeze/packs/soundtrack/music/Cafe.mp4",
+        "Landfill": "./breeze/packs/soundtrack/music/Landfill.mp4",
+        "DocksDay": "./breeze/packs/soundtrack/music/Docks.mp4",
+        "Sewers": "./breeze/packs/soundtrack/music/Sewers.mp4",
+        "Sea": "./breeze/packs/soundtrack/music/OceanAmbiance.mp4",
+        "Mall": "./breeze/packs/soundtrack/music/ShoppingCentre.mp4",
+        "AdultShop": "./breeze/packs/soundtrack/music/AdultShop.mp4",
+        "Arcade": "./breeze/packs/soundtrack/music/Arcade.mp4",
+        "Tenyclus": "./breeze/packs/soundtrack/music/TentaclePlains.mp4",
+        "secretTrack3Req": "passage has $syndromeeden and passage has $syndromewolves and passage has $syndromebird and passage has $hallucinations >= 2"
+    },
+    "data": [
+        {
+            "if": "location 'banner' or (passage has 'Settings' or passage has 'Attitudes')",
+            "do": {
+                "music": {
+                    "url": "./breeze/packs/soundtrack/music/Menu.mp3",
+                    "volume": 1
+                }
+            }
+        },
+        {
+            "if": "passage has 'Schism' and !#schismExemptions",
+            "do": {
+                "music": {
+                    "url": "./breeze/packs/soundtrack/music/Schism.mp4",
+                    "volume": 1
+                }
+            }
+        },
+        {
+            "if": "combat and enemyType 'vore'",
+            "do": {
+                "if": "voreStage >= 5",
+                "do": {
+                    "music": {
+                        "url": "#CombatVoreDeep",
+                        "volume": 0.6
+                    },
+                    "if": "voreStage >= 7",
+                    "do": [
+                        {
+                            "if": "stomachStage = 0",
+                            "do": {
+                                "music": {
+                                    "url": "#CombatVoreDeep",
+                                    "volume": 0.6,
+                                    "pitch": 0.9
+                                }
+                            }
+                        },
+                        {
+                            "if": "stomachStage = 1",
+                            "do": {
+                                "music": {
+                                    "url": "#CombatVoreDeep",
+                                    "volume": 0.5,
+                                    "pitch": 0.85
+                                }
+                            }
+                        },
+                        {
+                            "if": "stomachStage = 2",
+                            "do": {
+                                "music": {
+                                    "url": "#CombatVoreDeep",
+                                    "volume": 0.4,
+                                    "pitch": 0.8
+                                }
+                            }
+                        },
+                        {
+                            "if": "stomachStage = 3",
+                            "do": {
+                                "music": {
+                                    "url": "#CombatVoreDeep",
+                                    "volume": 0.3,
+                                    "pitch": 0.75
+                                }
+                            }
+                        },
+                        {
+                            "if": "stomachStage = 4",
+                            "do": {
+                                "music": {
+                                    "url": "#CombatVoreDeep",
+                                    "volume": 0.2,
+                                    "pitch": 0.7
+                                }
+                            }
+                        },
+                        {
+                            "if": "stomachStage >= 5",
+                            "do": {
+                                "music": {
+                                    "url": "#CombatVoreDeep",
+                                    "volume": 0.1,
+                                    "pitch": 0.65
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "if": "combat and (enemyType 'beast' or enemyType 'monster')",
+            "do": {
+                "music": {
+                    "url": "#BeastRape",
+                    "volume": 0.7
+                }
+            }
+        },
+        {
+            "if": "passage has 'Human Trafficking'",
+            "do": {
+                "music": {
+                    "url": "#CombatVoreDeep"
+                }
+            }
+        },
+        {
+            "if": "stalked true",
+            "do": {
+                "music": {
+                    "url": "./breeze/packs/soundtrack/music/Danger.mp4",
+                    "volume": 0.8
+                }
+            }
+        },
+        {
+            "if": "hunted true or text has 'You are being hunted'",
+            "do": {
+                "music": {
+                    "url": "./breeze/packs/soundtrack/music/Chased.mp4",
+                    "volume": 1
+                }
+            }
+        },
+        {
+            "if": "combat",
+            "do": {
+                "music": {
+                    "url": "#CombatMusicGeneric"
+                }
+            }
+        },
+        {
+            "if": "passage has 'Sacrifice'",
+            "do": {
+                "music": {
+                    "url": "./breeze/packs/soundtrack/music/Sacrifice.mp4"
+                }
+            }
+        },
+        {
+            "if": "passage has 'Escape'",
+            "do": {
+                "music": {
+                    "url": "./breeze/packs/soundtrack/music/Escape.mp4"
+                }
+            }
+        },
+        {
+            "if": "passage has 'Dismiss'",
+            "do": {
+                "music": {
+                    "url": "./breeze/packs/soundtrack/music/Dismissing.mp4"
+                }
+            }
+        },
+        {
+            "if": "passage has 'Rite of Defilement'",
+            "do": {
+                "music": {
+                    "url": "./breeze/packs/soundtrack/music/SydneyDefilement.mp4"
+                }
+            }
+        },
+        {
+            "if": "passage has 'Rite of Promise'",
+            "do": {
+                "music": {
+                    "url": "./breeze/packs/soundtrack/music/SydneyPromise.mp4"
+                }
+            }
+        },
+        {
+            "if": "passage has 'Blackjack' or passage has 'Estate Blackjack'",
+            "do": {
+                "music": {
+                    "url": "#BlackJack"
+                }
+            }
+        },
+        {
+            "if": "passage has 'Hookah'",
+            "do": {
+                "music": {
+                    "url": "#PotionShopMusic"
+                }
+            }
+        },
+        {
+            "if": "npcPresent has 'Ivory Wraith'",
+            "do": {
+                "music": {
+                    "url": "#WraithFight",
+                    "volume": 0.6
+                }
+            }
+        },
+        {
+            "if": "isBloodMoon",
+            "do": {
+                "music": {
+                    "url": "#BloodMoon"
+                }
+            }
+        },
+        {
+            "if": "calendar 31/10 and npcPresent has 'Kylar'",
+            "do": {
+                "music": {
+                    "url": "./breeze/packs/soundtrack/music/Halloween.mp4"
+                }
+            }
+        },
+        {
+            "if": "possessed or (passage has 'Lake' and passage has 'Prison')",
+            "do": {
+                "if": "passage has 'Lake Prison Intro Fight' or passage has 'Lake Ruin Prison Rape'",
+                "do": {
+                    "music": {
+                        "url": "#WraithFight",
+                        "volume": 0.8
+                    }
+                }
+            }
+        },
+        {
+            "if": "location 'lake_ruin'",
+            "do": {
+                "music": {
+                    "url": "#LakeRuin"
+                }
+            }
+        },
+        {
+            "if": "(location 'forest' or location 'moor') and (hunted or text has 'A bullet whizzes past and hits a tree in front of you.')",
+            "do": {
+                "music": {
+                    "url": "./breeze/packs/soundtrack/music/Eden.mp4",
+                    "volume": 1
+                }
+            }
+        },
+        {
+            "if": "trauma >= 3000",
+            "do": {
+                "music": {
+                    "url": "./breeze/packs/soundtrack/music/Fatigue.mp4"
+                }
+            }
+        },
+        {
+            "if": "npcPresent has 'Bailey'",
+            "do": {
+                "if": "#IsEventBaileyPayUp",
+                "do": {
+                    "music": {
+                        "url": "#BaileyPayUp",
+                        "volume": 0.8
+                    }
+                }
+            }
+        },
+        {
+            "if": "npcPresent has 'Sydney'",
+            "do": [
+                {
+                    "if": "npcData.sydney.corruption > 0",
+                    "do": {
+                        "music": {
+                            "url": "./breeze/packs/soundtrack/music/SydneyCorrupt.mp4"
+                        }
+                    }
+                },
+                {
+                    "music": {
+                        "url": "./breeze/packs/soundtrack/music/SydneyPure.mp4"
+                    }
+                }
+            ]
+        },
+        {
+            "if": "npcPresent has 'Whitney'",
+            "do": [
+                {
+                    "if": "passage has 'Whitney Chat'",
+                    "do": {
+                        "music": {
+                            "url": "#WhitneyThemeSoft"
+                        }
+                    }
+                },
+                {
+                    "music": {
+                        "url": "#WhitneyTheme",
+                        "volume": 1
+                    }
+                }
+            ]
+        },
+        {
+            "if": "npcPresent has 'Eden'",
+            "do": {
+                "music": {
+                    "url": "#EdenTheme"
+                }
+            }
+        },
+        {
+            "if": "npcPresent has 'Gwylan'",
+            "do": {
+                "music": {
+                    "url": "#GwylanTheme"
+                }
+            }
+        },
+        {
+            "if": "npcPresent has 'Morgan'",
+            "do": {
+                "music": {
+                    "url": "#MorganTheme"
+                }
+            }
+        },
+        {
+            "if": "npcPresent has 'Quinn'",
+            "do": {
+                "music": {
+                    "url": "#QuinnTheme"
+                }
+            }
+        },
+        {
+            "if": "npcPresent has 'Niki'",
+            "do": {
+                "music": {
+                    "url": "#NikiTheme"
+                }
+            }
+        },
+        {
+            "if": "passage has 'Avery Date' or passage has 'Avery Party'",
+            "do": {
+                "music": {
+                    "url": "#AveryFancy"
+                }
+            }
+        },
+        {
+            "if": "npcPresent has 'Great Hawk'",
+            "do": {
+                "music": {
+                    "url": "#HawkTheme"
+                }
+            }
+        },
+        {
+            "if": "npcPresent has 'Black Wolf'",
+            "do": {
+                "music": {
+                    "url": "#AlphaTheme"
+                }
+            }
+        },
+        {
+            "if": "npcPresent has 'Avery'",
+            "do": {
+                "music": {
+                    "url": "#AveryTheme"
+                }
+            }
+        },
+        {
+            "if": "npcPresent has 'Alex'",
+            "do": {
+                "music": {
+                    "url": "#AlexTheme"
+                }
+            }
+        },
+        {
+            "if": "text has 'comforting' or text has 'soothing'",
+            "do": {
+                "music": {
+                    "url": "./breeze/packs/soundtrack/music/Comfort.mp4",
+                    "volume": 1
+                }
+            }
+        },
+        {
+            "if": "passage has 'Livestock' and inside or text has 'breeder'",
+            "do": {
+                "music": {
+                    "url": "./breeze/packs/soundtrack/music/UndergroundFarm.mp4"
+                }
+            }
+        },
+        {
+            "if": "passage has 'Maze'",
+            "do": {
+                "music": {
+                    "url": "./breeze/packs/soundtrack/music/OldChurchyard.mp4"
+                }
+            }
+        },
+        {
+            "if": "location 'farm'",
+            "do": {
+                "music": {
+                    "url": "./breeze/packs/soundtrack/music/Farmland.mp4"
+                }
+            }
+        },
+        {
+            "if": "calendar = 25/12",
+            "do": {
+                "music": {
+                    "url": "./breeze/packs/soundtrack/music/Christmas.mp4"
+                }
+            }
+        },
+        {
+            "if": "#Stockholm or #secretTrack3Req",
+            "do": {
+                "music": {
+                    "url": "./breeze/packs/soundtrack/music/Stockholm.mp4"
+                }
+            }
+        },
+        {
+            "if": "passage has 'Robin' and location 'home' and !$robinmissing",
+            "do": [
+                {
+                    "if": "npcData.robin.trauma > 25 or trauma > 2500",
+                    "do": {
+                        "music": {
+                            "url": "#RobinThemeTrauma"
+                        }
+                    }
+                },
+                {
+                    "if": "npcData.robin.lust > 80",
+                    "do": {
+                        "music": {
+                            "url": "#RobinThemeLove",
+                            "volume": 1
+                        }
+                    }
+                },
+                {
+                    "music": {
+                        "url": "#RobinTheme",
+                        "volume": 1
+                    }
+                }
+            ]
+        },
+        {
+            "if": "passage has 'Smuggler Pub'",
+            "do": {
+                "music": {
+                    "url": "./breeze/packs/soundtrack/music/SmugglerCave.mp4",
+                    "volume": 0.6
+                }
+            }
+        },
+        {
+            "if": "location 'pirate_ship'",
+            "do": {
+                "music": {
+                    "url": "./breeze/packs/soundtrack/music/Pirates.mp4"
+                }
+            }
+        },
+        {
+            "if": "location 'sea'",
+            "do": {
+                "ambience": {
+                    "url": "#Sea"
+                }
+            }
+        },
+        {
+            "if": "location 'island'",
+            "do": {
+                "music": {
+                    "url": "./breeze/packs/soundtrack/music/Island.mp4"
+                }
+            }
+        },
+        {
+            "if": "location 'home'",
+            "do": [
+                {
+                    "if": "orphanageHope <= -15 && orphanageReb <= -15",
+                    "do": {
+                        "music": {
+                            "url": "./breeze/packs/soundtrack/music/Orfanato.mp3",
+                            "volume": 0.5
+                        }
+                    }
+                },
+                {
+                    "if": "orphanageHope > -15 && orphanageHope < 15 && orphanageReb <= -15",
+                    "do": {
+                        "music": {
+                            "url": "./breeze/packs/soundtrack/music/Orfanato.mp3",
+                            "volume": 0.5
+                        }
+                    }
+                },
+                {
+                    "if": "orphanageHope >= 15 && orphanageReb <= -15",
+                    "do": {
+                        "music": {
+                            "url": "./breeze/packs/soundtrack/music/HighHope.mp4",
+                            "volume": 0.5
+                        }
+                    }
+                },
+                {
+                    "if": "orphanageHope <= -15 && orphanageReb > -15 && orphanageReb < 15",
+                    "do": {
+                        "music": {
+                            "url": "./breeze/packs/soundtrack/music/Orfanato.mp3",
+                            "volume": 1
+                        }
+                    }
+                },
+                {
+                    "if": "orphanageHope > -15 && orphanageHope < 15 && orphanageReb > -15 && orphanageReb < 15",
+                    "do": {
+                        "music": {
+                            "url": "./breeze/packs/soundtrack/music/Orfanato.mp3",
+                            "volume": 0.5
+                        }
+                    }
+                },
+                {
+                    "if": "orphanageHope >= 15 && orphanageReb > -15 && orphanageReb < 15",
+                    "do": {
+                        "music": {
+                            "url": "./breeze/packs/soundtrack/music/Orfanato.mp3",
+                            "volume": 0.5
+                        }
+                    }
+                },
+                {
+                    "if": "orphanageHope <= -15 && orphanageReb >= 15",
+                    "do": {
+                        "music": {
+                            "url": "./breeze/packs/soundtrack/music/Orfanato.mp3",
+                            "volume": 0.5
+                        }
+                    }
+                },
+                {
+                    "if": "orphanageHope >= 15 && orphanageReb >= 25",
+                    "do": {
+                        "music": {
+                            "url": "./breeze/packs/soundtrack/music/Rebellion.mp4",
+                            "volume": 1
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "if": "location 'cabin'",
+            "do": [
+                {
+                    "if": "passage has 'Dance' or passage has 'Radio Intro 2' or passage has 'Radio Intro 3'",
+                    "do": {
+                        "music": {
+                            "url": "./breeze/packs/soundtrack/music/EdenRadio.mp4"
+                        }
+                    }
+                },
+                {
+                    "if": "inside and $syndromeeden",
+                    "do": {
+                        "music": {
+                            "url": "./breeze/packs/soundtrack/music/EdenCabin.mp4"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "if": "location 'kylar_manor' or location 'kylarmanor_grounds'",
+            "do": [
+                {
+                    "if": "passage has 'Kylar'",
+                    "do": {
+                        "music": {
+                            "url": "#KylarTheme",
+                            "volume": 0.7
+                        }
+                    }
+                },
+                {
+                    "music": {
+                        "url": "./breeze/packs/soundtrack/music/KylarManor.mp4",
+                        "volume": 1,
+                        "fadein": 4000
+                    }
+                }
+            ]
+        },
+        {
+            "if": "npcPresent has 'Kylar'",
+            "do": {
+                "music": {
+                    "url": "#KylarTheme",
+                    "volume": 1
+                }
+            }
+        },
+        {
+            "if": "passage has 'Shopping Centre'",
+            "do": {
+                "music": {
+                    "url": "#Mall"
+                }
+            }
+        },
+        {
+            "if": "passage has 'Catacombs' or passage has 'Sepulchre' ",
+            "do": {
+                "music": {
+                    "url": "./breeze/packs/soundtrack/music/OldChurchyard.mp4"
+                }
+            }
+        },
+        {
+            "if": "location 'pub'",
+            "do": {
+                "music": {
+                    "url": "#Pub"
+                }
+            }
+        },
+        {
+            "if": "location 'spa'",
+            "do": {
+                "music": {
+                    "url": "./breeze/packs/soundtrack/music/spa.mp4",
+                    "volume": 1
+                }
+            }
+        },
+        {
+            "if": "(passage has 'Library' or passage has 'Sydney Chat')",
+            "do": {
+                "music": {
+                    "url": "#Library",
+                    "volume": 1
+                }
+            }
+        },
+        {
+            "if": "location 'sewer'",
+            "do": {
+                "music": {
+                    "url": "#Sewer",
+                    "volume": 0.7
+                }
+            }
+        },
+        {
+            "if": "location 'cafe'",
+            "do": {
+                "music": {
+                    "url": "#Cafe"
+                }
+            }
+        },
+        {
+            "if": "location 'temple'",
+            "do": [
+                {
+                    "if": "dayState 'night'",
+                    "do": {
+                        "music": {
+                            "url": "#TempleNight",
+                            "volume": 0.8
+                        }
+                    }
+                },
+                {
+                    "music": {
+                        "url": "#Temple"
+                    }
+                }
+            ]
+        },
+        {
+            "if": "passage has 'Confess'",
+            "do": {
+                "music": {
+                    "url": "./breeze/packs/soundtrack/music/Confession.mp4"
+                }
+            }
+        },
+        {
+            "if": "(location 'park') and (dayState 'day' or dayState 'dawn')",
+            "do": {
+                "music": {
+                    "url": "#Tranquil",
+                    "volume": 1
+                }
+            }
+        },
+        {
+            "if": "location 'docks'",
+            "do": {
+                "if": "dayState 'day' or dayState 'dawn'",
+                "do": {
+                    "music": {
+                        "url": "#DocksDay",
+                        "volume": 1
+                    }
+                }
+            }
+        },
+        {
+            "if": "((location 'town' or location 'alley') and outside) or location 'market'",
+            "do": [
+                {
+                    "if": "dayState 'day' or dayState 'dawn'",
+                    "do": {
+                        "music": {
+                            "url": "./breeze/packs/soundtrack/music/TownRuasHostis.mp4"
+                        }
+                    }
+                },
+                {
+                    "if": "dayState 'dusk'",
+                    "do": {
+                        "music": {
+                            "url": "./breeze/packs/soundtrack/music/Hope.mp4"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "if": "location 'flats' or location 'canal'",
+            "do": {
+                "if": "weather 'none'",
+                "do": {
+                    "music": {
+                        "url": "#Flats"
+                    }
+                }
+            }
+        },
+        {
+            "if": "location 'tentworld'",
+            "do": {
+                "music": {
+                    "url": "#TentacleWorld",
+                    "volume": 1
+                }
+            }
+        },
+        {
+            "if": "location 'asylum'",
+            "do": {
+                "music": {
+                    "url": "./breeze/packs/soundtrack/music/Asylum.mp4",
+                    "volume": 0.7
+                }
+            }
+        },
+        {
+            "if": "location 'prison'",
+            "do": {
+                "music": {
+                    "url": "./breeze/packs/soundtrack/music/Prison.mp4",
+                    "volume": 0.7
+                }
+            }
+        },
+        {
+            "if": "location 'underground'",
+            "do": {
+                "if": "passage has 'Underground'",
+                "do": {
+                    "music": {
+                        "url": "./breeze/packs/soundtrack/music/UndergroundBrothel.mp4"
+                    }
+                }
+            }
+        },
+        {
+            "if": "location 'landfill'",
+            "do": {
+                "music": {
+                    "url": "#Landfill"
+                }
+            }
+        },
+        {
+            "if": "location 'arcade' and !outside",
+            "do": [
+                {
+                    "if": "passage has 'Tenyclus'",
+                    "do": {
+                        "music": {
+                            "url": "#Tenyclus"
+                        }
+                    }
+                },
+                {
+                    "if": "(dayState 'day' or dayState 'dusk')",
+                    "do": {
+                        "music": {
+                            "url": "#Arcade"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "if": "location 'brothel'",
+            "do": {
+                "music": {
+                    "url": "#Brothel"
+                }
+            }
+        },
+        {
+            "if": "location 'strip_club' and clock > 18:00",
+            "do": [
+                {
+                    "if": "text has 'No entry' or passage 'Strip Club Proposition'",
+                    "do": {
+                        "music": {
+                            "url": "#Club",
+                            "volume": 0.1,
+                            "fadein": 1500
+                        }
+                    }
+                },
+                {
+                    "do": {
+                        "music": {
+                            "url": "#Club",
+                            "volume": 0.3,
+                            "fadein": 2500
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "if": "passage has 'Adult Shop'",
+            "do": {
+                "music": {
+                    "url": "#AdultShop"
+                }
+            }
+        },
+        {
+            "if": "location 'forest'",
+            "do": {
+                "music": {
+                    "url": "#Forest",
+                    "volume": 1
+                }
+            }
+        },
+        {
+            "if": "(location has 'school' or location 'pool') and (time.hour >= 7 and time.hour <= 17)",
+            "do": [
+                {
+                    "if": "time.weekDayName 'Friday' and clock < 14:59",
+                    "do": {
+                        "music": {
+                            "url": "#Classroom"
+                        }
+                    }
+                },
+                {
+                    "do": {
+                        "music": {
+                            "url": "#SchoolHall",
+                            "volume": 1
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
